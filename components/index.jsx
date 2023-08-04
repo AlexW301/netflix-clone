@@ -1,3 +1,4 @@
 import HeroSection from "./HeroSection";
+import MovieCard from "./MovieCard";
 
-export { HeroSection }
+export { HeroSection, MovieCard }
