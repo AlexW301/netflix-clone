@@ -1,10 +1,10 @@
 "use client"
 import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function HeroSection({ initialMovies }) {
   const [movies, setMovies] = useState(initialMovies)
   const [search, setSearch] = useState('harry potter')
-  console.log(process.env.API_KEY)
 
   useEffect(() => {
     async function getData() {
@@ -20,7 +20,7 @@ export default function HeroSection({ initialMovies }) {
     getData().then((data) => {
       setMovies(data)
     })
-    
+
   }, [search])
 
   return (
@@ -28,9 +28,10 @@ export default function HeroSection({ initialMovies }) {
       <h1>Hero Section</h1>
       <input value={search} onChange={(e) => { setSearch(e.target.value) }} type="text" />
       {movies.Search && movies.Search.map((movie) => (
-        <div key={movie.imdbID}>
+        <Link href={`/movies/${movie.imdbID}`} key={movie.imdbID}>
           <h2>{movie.Title}</h2>
-        </div>
+          <h2>{movie.imdbID}</h2>
+        </Link>
       ))}
     </div>
   )
