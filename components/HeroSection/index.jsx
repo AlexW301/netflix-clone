@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react'
-import { MovieCard } from '../../components/index'
+import { MovieCard, SearchBar } from '../../components/index'
 import styles from "./herosection.module.scss"
 import Link from 'next/link'
 
@@ -26,12 +26,17 @@ export default function HeroSection({ initialMovies }) {
     }, [search])
 
     return (
-        <div className={styles.test}>
-            <h1>Hero Section</h1>
-            <input value={search} onChange={(e) => { setSearch(e.target.value) }} type="text" />
-            {movies.Search && movies.Search.map((movie) => (
-                <MovieCard key={movie.imdbID} movie={movie} />
-            ))}
+        <div>
+            <SearchBar search={search} setSearch={setSearch} />
+            <ul className={styles.movieContainer}>
+                {movies.Search ? movies.Search.map((movie) => (
+                    <MovieCard key={movie.imdbID} movie={movie} />
+                )) : (
+                    <div>
+                        try searching
+                    </div>
+                )}
+            </ul>
         </div>
     )
 }
