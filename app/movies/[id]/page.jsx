@@ -22,7 +22,7 @@ export default async function MoviePage({ params }) {
             </Link>
             {/* Movie Poster */}
             <div className={styles.imgContainer}>
-                <Image src={Poster} alt={Title} width={300} height={450} />
+                <Image src={Poster === null || Poster === "N/A" ? '/placeholder-poster.png' : Poster} alt={Title} width={300} height={450} />
             </div>
             {/* Movie Info */}
             <div className={styles.infoSection}>

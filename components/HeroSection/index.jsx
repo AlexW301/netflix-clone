@@ -5,7 +5,7 @@ import styles from "./herosection.module.scss"
 
 export default function HeroSection({ initialMovies }) {
     const [movies, setMovies] = useState(initialMovies)
-    const [search, setSearch] = useState('star wars')
+    const [search, setSearch] = useState('Star Wars')
 
     useEffect(() => {
         async function getData() {
