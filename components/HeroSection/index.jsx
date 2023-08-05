@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react'
 import { MovieCard, SearchBar } from '../../components/index'
 import styles from "./herosection.module.scss"
-import Link from 'next/link'
 
 export default function HeroSection({ initialMovies }) {
     const [movies, setMovies] = useState(initialMovies)
@@ -28,15 +27,15 @@ export default function HeroSection({ initialMovies }) {
     return (
         <div>
             <SearchBar search={search} setSearch={setSearch} />
-            <ul className={styles.movieContainer}>
+            <div className={styles.movieContainer}>
                 {movies.Search ? movies.Search.map((movie) => (
                     <MovieCard key={movie.imdbID} movie={movie} />
                 )) : (
-                    <div>
-                        try searching
+                    <div className={styles.noResults}>
+                        No results...
                     </div>
                 )}
-            </ul>
+            </div>
         </div>
     )
 }
