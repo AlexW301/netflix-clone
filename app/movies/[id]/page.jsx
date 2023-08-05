@@ -18,7 +18,6 @@ export default async function MoviePage({ params }) {
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                     <path d="M9 3.5L9.8125 4.3125L5.125 9H20V11H5.125L9.8125 15.6875L9 16.5L2.5 10L9 3.5Z" fill="#000000" />
                 </svg>
-                go back
             </Link>
             {/* Image */}
             <div className={styles.imgContainer}>
